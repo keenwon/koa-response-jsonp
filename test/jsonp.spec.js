@@ -93,6 +93,16 @@ describe('koa-json测试', function () {
             .equal('Not Found');
     });
 
+    it('callback测试:callback类型错误', function () {
+        (function () {
+            const app = koa();
+
+            jsonp(app, {
+                callbackFn: true
+            });
+        }).should.throw('callbackFn must be string');
+    });
+
     it('callback测试:自定义callback', function () {
         const app = koa();
 
