@@ -73,4 +73,46 @@ describe('koa-json测试', function () {
             });
     });
 
+    it('callback测试:不指定callback', function () {
+        const app = koa();
+
+        jsonp(app);
+
+        app.use(function *() {
+            return this.jsonp({
+                success: true
+            });
+        });
+
+        this.server = app.listen(8888);
+
+        return fetch('http://localhost:8888')
+            .then(response => response.text())
+            .should
+            .eventually
+            .equal('Not Found');
+    });
+
+    it('callback测试:自定义callback', function () {
+        const app = koa();
+
+        jsonp(app, {
+            callbackFn: 'cb'
+        });
+
+        app.use(function *() {
+            return this.jsonp({
+                success: true
+            });
+        });
+
+        this.server = app.listen(8888);
+
+        return fetch('http://localhost:8888?cb=fn')
+            .then(response => response.text())
+            .should
+            .eventually
+            .equal('fn({"success":true})');
+    });
+
 });
