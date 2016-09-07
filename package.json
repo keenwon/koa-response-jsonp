@@ -1,7 +1,7 @@
 {
   "name": "koa-jsonp",
   "version": "1.0.0",
-  "description": "koa json middleware",
+  "description": "koa jsonp middleware",
   "main": "lib/jsonp.js",
   "scripts": {
     "test": "istanbul cover _mocha test/**/*.spec.js -- -R spec  && istanbul report text && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js"
