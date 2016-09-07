@@ -30,9 +30,12 @@
     "coveralls": "^2.11.9",
     "istanbul": "^0.4.3",
     "koa": "^1.2.0",
-    "mocha": "^2.5.3",
-    "mocha-eslint": "^2.0.2",
+    "mocha": "^3.0.2",
+    "mocha-eslint": "^3.0.1",
     "node-fetch": "^1.6.0"
+  },
+  "dependencies": {
+    "debug": "^2.2.0"
   },
   "bugs": {
     "url": "https://github.com/keenwon/koa-jsonp/issues"
