@@ -115,4 +115,24 @@ describe('koa-json测试', function () {
             .equal('fn({"success":true})');
     });
 
+    it('测试请求类型非get', function () {
+        const app = koa();
+
+        jsonp(app);
+
+        app.use(function *() {
+            return this.jsonp({
+                success: true
+            });
+        });
+
+        this.server = app.listen(8888);
+
+        return fetch('http://localhost:8888?cb=fn', { method: 'POST' })
+            .then(response => response.text())
+            .should
+            .eventually
+            .equal('Not Found');
+    });
+
 });
