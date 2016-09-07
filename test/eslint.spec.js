@@ -2,7 +2,7 @@
 
 const lint = require('mocha-eslint');
 
-var paths = ['lib/subdomain.js'];
+var paths = ['lib/jsonp.js'];
 
 var options = {
     formatter: 'compact',
