@@ -1,5 +1,5 @@
 {
-  "name": "koa-jsonp",
+  "name": "koa-response-jsonp",
   "version": "1.0.0",
   "description": "koa jsonp middleware",
   "main": "lib/jsonp.js",
@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/keenwon/koa-jsonp.git"
+    "url": "git+https://github.com/keenwon/koa-response-jsonp.git"
   },
   "files": [
     "lib"
@@ -38,7 +38,7 @@
     "debug": "^2.2.0"
   },
   "bugs": {
-    "url": "https://github.com/keenwon/koa-jsonp/issues"
+    "url": "https://github.com/keenwon/koa-response-jsonp/issues"
   },
-  "homepage": "https://github.com/keenwon/koa-jsonp#readme"
+  "homepage": "https://github.com/keenwon/koa-response-jsonp#readme"
 }
