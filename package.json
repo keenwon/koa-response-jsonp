@@ -1,6 +1,6 @@
 {
   "name": "koa-response-jsonp",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "koa jsonp middleware",
   "main": "lib/jsonp.js",
   "scripts": {
@@ -11,7 +11,8 @@
     "url": "git+https://github.com/keenwon/koa-response-jsonp.git"
   },
   "files": [
-    "lib"
+    "lib",
+    "README.md"
   ],
   "keywords": [
     "koa",
