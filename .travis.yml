@@ -1,5 +1,7 @@
 language: node_js
 node_js:
-  - "6.0.0"
-before_install:
-  - npm install -g npm
+  - "7.7.0"
+cache:
+  yarn: true
+  directories:
+    - node_modules%

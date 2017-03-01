@@ -1,6 +1,6 @@
 'use strict';
 
-const koa = require('koa');
+const Koa = require('koa');
 const fetch = require('node-fetch');
 const jsonp = require('../lib/jsonp');
 
@@ -31,12 +31,12 @@ describe('koa-json测试', function () {
     });
 
     it('测试返回数据', function () {
-        const app = koa();
+        const app = new Koa();
 
         jsonp(app);
 
-        app.use(function *() {
-            return this.jsonp({
+        app.use(async ctx => {
+            return ctx.jsonp({
                 success: true
             });
         });
@@ -51,12 +51,12 @@ describe('koa-json测试', function () {
     });
 
     it('测试返回类型', function (done) {
-        const app = koa();
+        const app = new Koa();
 
         jsonp(app);
 
-        app.use(function *() {
-            return this.jsonp({
+        app.use(async ctx => {
+            return ctx.jsonp({
                 success: true
             });
         });
@@ -74,12 +74,12 @@ describe('koa-json测试', function () {
     });
 
     it('callback测试:不指定callback', function () {
-        const app = koa();
+        const app = new Koa();
 
         jsonp(app);
 
-        app.use(function *() {
-            return this.jsonp({
+        app.use(async ctx => {
+            return ctx.jsonp({
                 success: true
             });
         });
@@ -95,7 +95,7 @@ describe('koa-json测试', function () {
 
     it('callback测试:callback类型错误', function () {
         (function () {
-            const app = koa();
+            const app = new Koa();
 
             jsonp(app, {
                 callbackFn: true
@@ -104,14 +104,14 @@ describe('koa-json测试', function () {
     });
 
     it('callback测试:自定义callback', function () {
-        const app = koa();
+        const app = new Koa();
 
         jsonp(app, {
             callbackFn: 'cb'
         });
 
-        app.use(function *() {
-            return this.jsonp({
+        app.use(async ctx => {
+            return ctx.jsonp({
                 success: true
             });
         });
@@ -126,12 +126,12 @@ describe('koa-json测试', function () {
     });
 
     it('测试请求类型非get', function () {
-        const app = koa();
+        const app = new Koa();
 
         jsonp(app);
 
-        app.use(function *() {
-            return this.jsonp({
+        app.use(async ctx => {
+            return ctx.jsonp({
                 success: true
             });
         });
