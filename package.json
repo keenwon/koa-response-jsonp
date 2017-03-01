@@ -1,6 +1,6 @@
 {
   "name": "koa-response-jsonp",
-  "version": "1.0.1",
+  "version": "2.0.0",
   "description": "koa jsonp middleware",
   "main": "lib/jsonp.js",
   "scripts": {

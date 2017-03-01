@@ -16,14 +16,14 @@ npm install koa-response-jsonp --save
 ## Usage
 
 ```javascript
-const koa = require('koa');
-const app = koa();
+const Koa = require('koa');
+const app = new Koa();
 const jsonp = require('koa-response-jsonp');
 
 jsonp(app);
 
-app.use(function *() {
-	this.jsonp({
+app.use(async ctx => {
+	ctx.jsonp({
 		success: true
 	});
 });
