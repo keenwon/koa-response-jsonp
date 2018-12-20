@@ -30,7 +30,7 @@
     "node-fetch": "^2.3.0"
   },
   "dependencies": {
-    "debug": "^2.2.0"
+    "debug": "^4.1.0"
   },
   "peerDependencies": {
     "koa": "^2"
