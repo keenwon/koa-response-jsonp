@@ -27,7 +27,7 @@
     "koa": "^2.0.1",
     "mocha": "^3.0.2",
     "mocha-eslint": "^3.0.1",
-    "node-fetch": "^1.6.0"
+    "node-fetch": "^2.3.0"
   },
   "dependencies": {
     "debug": "^2.2.0"
