@@ -2,3 +2,7 @@
 .idea/
 node_modules/
 coverage/
+
+# ELint (https://github.com/keenwon/elint)
+.eslintrc.js
+.stylelintrc.js
