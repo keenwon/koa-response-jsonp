@@ -2,6 +2,7 @@
 
 const Koa = require('koa')
 const fetch = require('node-fetch')
+const getPort = require('get-port')
 const jsonp = require('../lib/jsonp')
 
 const chai = require('chai')
@@ -15,21 +16,21 @@ describe('koa-json测试', function () {
   })
 
   it('不传入app', function () {
-    (function () {
+    ;(function () {
       jsonp()
-    }).should.throw('app is must be an instance of koa')
+    }.should.throw('app is must be an instance of koa'))
   })
 
   it('传入错误参数', function () {
-    function Test () {
-    }
+    function Test () {}
 
-    (function () {
+    ;(function () {
       jsonp(new Test())
-    }).should.throw('app is must be an instance of koa')
+    }.should.throw('app is must be an instance of koa'))
   })
 
-  it('测试返回数据', function () {
+  it('测试返回数据', async () => {
+    const port = await getPort()
     const app = new Koa()
 
     jsonp(app)
@@ -40,16 +41,15 @@ describe('koa-json测试', function () {
       })
     })
 
-    this.server = app.listen(8888)
+    this.server = app.listen(port)
 
-    return fetch('http://localhost:8888?callback=fn')
+    return fetch(`http://localhost:${port}?callback=fn`)
       .then(response => response.text())
-      .should
-      .eventually
-      .equal('fn({"success":true})')
+      .should.eventually.equal('fn({"success":true})')
   })
 
-  it('测试返回类型', function (done) {
+  it('测试返回类型', async () => {
+    const port = await getPort()
     const app = new Koa()
 
     jsonp(app)
@@ -60,19 +60,15 @@ describe('koa-json测试', function () {
       })
     })
 
-    this.server = app.listen(8888)
+    this.server = app.listen(port)
 
-    fetch('http://localhost:8888?callback=fn')
-      .then(response => {
-        response.headers.get('content-type')
-          .should
-          .be
-          .include('application/json')
-        done()
-      })
+    const response = await fetch(`http://localhost:${port}?callback=fn`)
+
+    return response.headers.get('content-type').should.be.include('application/json')
   })
 
-  it('callback测试:不指定callback', function () {
+  it('callback测试:不指定callback', async () => {
+    const port = await getPort()
     const app = new Koa()
 
     jsonp(app)
@@ -83,26 +79,25 @@ describe('koa-json测试', function () {
       })
     })
 
-    this.server = app.listen(8888)
+    this.server = app.listen(port)
 
-    return fetch('http://localhost:8888')
+    return fetch(`http://localhost:${port}`)
       .then(response => response.text())
-      .should
-      .eventually
-      .equal('Not Found')
+      .should.eventually.equal('Not Found')
   })
 
   it('callback测试:callback类型错误', function () {
-    (function () {
+    ;(function () {
       const app = new Koa()
 
       jsonp(app, {
         callbackFn: true
       })
-    }).should.throw('callbackFn must be string')
+    }.should.throw('callbackFn must be string'))
   })
 
-  it('callback测试:自定义callback', function () {
+  it('callback测试:自定义callback', async () => {
+    const port = await getPort()
     const app = new Koa()
 
     jsonp(app, {
@@ -115,16 +110,15 @@ describe('koa-json测试', function () {
       })
     })
 
-    this.server = app.listen(8888)
+    this.server = app.listen(port)
 
-    return fetch('http://localhost:8888?cb=fn')
+    return fetch(`http://localhost:${port}?cb=fn`)
       .then(response => response.text())
-      .should
-      .eventually
-      .equal('fn({"success":true})')
+      .should.eventually.equal('fn({"success":true})')
   })
 
-  it('测试请求类型非get', function () {
+  it('测试请求类型非get', async () => {
+    const port = await getPort()
     const app = new Koa()
 
     jsonp(app)
@@ -135,12 +129,10 @@ describe('koa-json测试', function () {
       })
     })
 
-    this.server = app.listen(8888)
+    this.server = app.listen(port)
 
-    return fetch('http://localhost:8888?cb=fn', { method: 'POST' })
+    return fetch(`http://localhost:${port}?cb=fn`, { method: 'POST' })
       .then(response => response.text())
-      .should
-      .eventually
-      .equal('Not Found')
+      .should.eventually.equal('Not Found')
   })
 })

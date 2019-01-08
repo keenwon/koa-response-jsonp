@@ -7,7 +7,7 @@
     "test": "npm run test:lint && npm run test:unit",
     "test:lint": "elint lint \"**/*.js\" --fix",
     "test:unit": "istanbul cover _mocha \"test/**/*.spec.js\" -- -R spec  && istanbul report text && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
-    "beforecommit": "elint lint commit && npm run test"
+    "beforecommit": "elint lint commit && npm run test:lint"
   },
   "repository": "git+https://github.com/keenwon/koa-response-jsonp.git",
   "files": [
@@ -28,6 +28,7 @@
     "coveralls": "^3.0.2",
     "elint": "^1.9.0",
     "elint-preset-kw": "^1.1.0",
+    "get-port": "^4.1.0",
     "istanbul": "^0.4.3",
     "koa": "^2.0.1",
     "mocha": "^5.2.0",
