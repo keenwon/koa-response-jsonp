@@ -29,7 +29,7 @@ describe('koa-json测试', function () {
     }.should.throw('app is must be an instance of koa'))
   })
 
-  it('测试返回数据', async () => {
+  it('测试返回数据', async function () {
     const port = await getPort()
     const app = new Koa()
 
@@ -48,7 +48,7 @@ describe('koa-json测试', function () {
       .should.eventually.equal('fn({"success":true})')
   })
 
-  it('测试返回类型', async () => {
+  it('测试返回类型', async function () {
     const port = await getPort()
     const app = new Koa()
 
@@ -67,7 +67,7 @@ describe('koa-json测试', function () {
     return response.headers.get('content-type').should.be.include('application/json')
   })
 
-  it('callback测试:不指定callback', async () => {
+  it('callback测试:不指定callback', async function () {
     const port = await getPort()
     const app = new Koa()
 
@@ -96,7 +96,7 @@ describe('koa-json测试', function () {
     }.should.throw('callbackFn must be string'))
   })
 
-  it('callback测试:自定义callback', async () => {
+  it('callback测试:自定义callback', async function () {
     const port = await getPort()
     const app = new Koa()
 
@@ -117,7 +117,7 @@ describe('koa-json测试', function () {
       .should.eventually.equal('fn({"success":true})')
   })
 
-  it('测试请求类型非get', async () => {
+  it('测试请求类型非get', async function () {
     const port = await getPort()
     const app = new Koa()
 
