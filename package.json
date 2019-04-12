@@ -1,6 +1,6 @@
 {
   "name": "koa-response-jsonp",
-  "version": "2.1.0",
+  "version": "3.0.0",
   "description": "koa jsonp middleware",
   "main": "lib/jsonp.js",
   "scripts": {
@@ -22,6 +22,9 @@
   ],
   "author": "keenwon <semanwmj@yeah.net>",
   "license": "MIT",
+  "engines": {
+    "node": ">=8"
+  },
   "devDependencies": {
     "chai": "^4.2.0",
     "chai-as-promised": "^7.1.1",
