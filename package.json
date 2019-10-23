@@ -28,7 +28,7 @@
   "devDependencies": {
     "chai": "^4.2.0",
     "chai-as-promised": "^7.1.1",
-    "coveralls": "^3.0.6",
+    "coveralls": "^3.0.7",
     "elint": "^2.0.0-alpha.3",
     "elint-preset-kw": "^1.8.1",
     "get-port": "^5.0.0",
