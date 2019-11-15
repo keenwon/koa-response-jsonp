@@ -5,8 +5,9 @@
   "main": "lib/jsonp.js",
   "scripts": {
     "test": "npm run test:lint && npm run test:unit",
-    "test:lint": "elint lint \"**/*.js\" --fix",
-    "test:unit": "nyc --reporter=html --reporter=text mocha \"test/**/*.spec.js\" && nyc report --reporter=text-lcov | coveralls",
+    "test:lint": "elint lint \"lib/**/*.js\" \"test/**/*.js\" defaultConfig.js index.js --fix",
+    "test:unit": "nyc --reporter=html --reporter=text mocha \"test/**/*.spec.js\"",
+    "test:coverage": "nyc report --reporter=lcovonly",
     "beforecommit": "elint lint commit && npm run test:lint"
   },
   "repository": "git+https://github.com/keenwon/koa-response-jsonp.git",
@@ -28,7 +29,6 @@
   "devDependencies": {
     "chai": "^4.2.0",
     "chai-as-promised": "^7.1.1",
-    "coveralls": "^3.0.7",
     "elint": "^2.0.0-alpha.3",
     "elint-preset-kw": "^1.8.1",
     "get-port": "^5.0.0",
