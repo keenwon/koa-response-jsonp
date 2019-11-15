@@ -2,7 +2,7 @@
 
 [![NPM version][npm-image]][npm-url]
 [![Node version][node-image]][node-url]
-[![Build Status][travis-image]][travis-url]
+[![Build Status][github-actions-image]][github-actions-url]
 [![Coverage Status][coveralls-image]][coveralls-url]
 [![npm download][download-image]][download-url]
 
@@ -47,13 +47,13 @@ jsonp(app, {
 ```
 
 
-[npm-image]: https://img.shields.io/npm/v/koa-response-jsonp.svg?style=flat-square&maxAge=3600
+[npm-image]: https://img.shields.io/npm/v/koa-response-jsonp.svg
 [npm-url]: https://www.npmjs.com/package/koa-response-jsonp
-[node-image]: https://img.shields.io/node/v/koa-response-jsonp.svg?style=flat-square&maxAge=3600
+[node-image]: https://img.shields.io/node/v/koa-response-jsonp.svg
 [node-url]: https://nodejs.org
-[travis-image]: https://img.shields.io/travis/keenwon/koa-response-jsonp.svg?style=flat-square&maxAge=3600
-[travis-url]: https://travis-ci.org/keenwon/koa-response-jsonp
-[coveralls-image]: https://img.shields.io/coveralls/keenwon/koa-response-jsonp.svg?style=flat-square&maxAge=3600
-[coveralls-url]: https://coveralls.io/github/keenwon/koa-response-jsonp?branch=master
-[download-image]: https://img.shields.io/npm/dm/koa-response-jsonp.svg?style=flat-square&maxAge=3600
+[github-actions-image]: https://github.com/keenwon/koa-response-jsonp/workflows/unittest/badge.svg
+[github-actions-url]: https://github.com/keenwon/koa-response-jsonp/actions
+[coveralls-image]: https://img.shields.io/codecov/c/github/keenwon/koa-response-jsonp
+[coveralls-url]: https://codecov.io/gh/keenwon/koa-response-jsonp
+[download-image]: https://img.shields.io/npm/dm/koa-response-jsonp.svg
 [download-url]: https://npmjs.org/package/koa-response-jsonp
